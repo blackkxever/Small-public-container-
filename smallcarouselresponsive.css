@@ -50,7 +50,6 @@
 
   .card-small:hover .item-border 
     transform: scale(1.05);
-    border: 10px solid rgba(249, 249, 249, 0.8);
   }
   
   @media screen and (min-width: 300px) {
