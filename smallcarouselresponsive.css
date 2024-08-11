@@ -50,7 +50,7 @@
 
   .card-small:hover .item-border 
     transform: scale(1.05);
-    border: 10px; !important; 
+    border: 10px solid rgba(249, 249, 249, 0.8);
   }
   
   @media screen and (min-width: 300px) {
@@ -68,10 +68,7 @@
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       grid-column-gap: 15px;
     }
-    .item-border {
-      border: 1px solid rgba(249, 249, 249, 0.1);
-    }
-  }
+
   @media screen and (min-width: 1024px) {
     .grid {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
