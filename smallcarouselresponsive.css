@@ -47,10 +47,6 @@
     transition-duration: 300ms;
     visibility: hidden;
   }
-  .card-small:hover .item-border 
-    transform: scale(1.05);
-    border: 3px solid rgba(249, 249, 249, 0.8);
-  }
   
   @media screen and (min-width: 300px) {
     .grid {
