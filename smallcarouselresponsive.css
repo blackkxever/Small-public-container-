@@ -57,7 +57,7 @@
   }
   .card-small:hover .item-border 
     transform: scale(1.05);
-    border: 4px solid rgba(249, 249, 249, 0.8);
+    border: 3px solid rgba(249, 249, 249, 0.8);
   }
   
   .card-small:hover .item-image.hover-image {
