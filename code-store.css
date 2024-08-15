@@ -17,28 +17,45 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-.logo img {
+.logo {
+    width: 40px; /* Adjust width to fit your logo */
     height: 40px;
+    background-image: url('https://assets.market-storefront.envato-static.com/storefront/assets/logos/codecanyon-f02914a18facfc9c3d14d4028cd87731c1541c11c16a891831b8bce05f92b4d8.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     margin-right: 10px;
 }
 
-.menu-icon img, .cart-icon img, .user-icon img {
+.menu-icon {
+    width: 20px;
     height: 20px;
-    background-color: #333333;
-    border-radius: 3px;
-    padding: 5px;
-    -webkit-tap-highlight-color: transparent;
+    background-image: url('https://i.ibb.co/hCtgJ1k/menu-custom.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.menu-icon img:active, .cart-icon img:active, .user-icon img:active {
+.cart-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('https://i.ibb.co/t80MDd1/cart-custom.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.user-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('https://i.ibb.co/6RJdRMQ/account-custom-1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+}
+
+.menu-icon:active, .cart-icon:active, .user-icon:active {
     background-color: #0982AD;
 }
 
 .icon-group {
     display: flex;
     align-items: center;
-}
-
-.user-icon {
-    margin-left: 10px;
 }
