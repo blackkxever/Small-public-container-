@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+}
+
+.card {
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    flex: 1 1 calc(50% - 10px);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.card img.banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+    user-select: none;
+}
+
+.card img.banner:hover, .card img.banner:active {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen ligeramente */
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.card-content h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 16px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.btn-preview, .btn-cart {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    user-select: none; 
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-cart {
+    border-color: #CCCCCC;
+    color: #CCCCCC;
+    background-image: url('https://i.ibb.co/7zYWnPc/cart-custom-5.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+}
+
+.btn-preview {
+    border-color: #087097;
+    color: #087097;
+    margin-left: 10px;
+}
+
+.btn-preview:hover, .btn-preview:active {
+    background-color: #087097;
+    color: #fff;
+}
+
+.btn-cart:hover, .btn-cart:active {
+    background-image: url('https://i.ibb.co/0cDN3DC/cart-custom-8.png');
+    background-color: #6fad3d;
+    color: #fff;    
+}
+
+/* Responsivo: Una tarjeta debajo de la otra en pantallas pequeñas */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%;
+    }
+}
