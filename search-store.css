@@ -9,12 +9,13 @@ body {
         .info h1 {
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
-            font-size: 1.5em;            
+            font-size: 1.5em;
+            margin-bottom: 40px;            
         }
         .info p {
             font-family: Arial, sans-serif;
             font-size: 1em;
-            margin-bottom: 0px;
+            margin-bottom: 40px;
         }
         
         .search-container {
