@@ -131,3 +131,7 @@ body {
 #no-results a:hover {
     text-decoration: underline;
 }
+
+#no-results #search-query {
+    color: #6fad3d;
+}
