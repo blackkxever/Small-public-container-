@@ -1,35 +1,32 @@
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
 
-}
+        #button-container {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
 
-
-#button-container {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    
-}
-
-@media (orientation: landscape) {
-    #button-container {
-        bottom: 10px;
-        right: 10px;
-        position: fixed;
-    }
-}    
+        @media (orientation: landscape) {
+            #button-container {
+                bottom: 10px;
+                right: 10px;
+                position: fixed;
+            }
+        }    
 
         #music-button {
             width: 40px; 
@@ -41,9 +38,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0;    -webkit-tap-highlight-color: transparent;
-            
-           q
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         #music-button img {
@@ -89,24 +85,12 @@
                 opacity: 0;
                 transform: translate(calc(150px * (var(--random-x))), calc(100px * (var(--random-y)))) scale(0.5);
             }
+        }
         
-      #music-button {
-    transition: opacity 0.5s ease-in-out;
-}
+        #music-button {
+            transition: opacity 0.5s ease-in-out;
+        }
 
-.fade {
-  transition: opacity 0.5s ease-in-out;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
-
-}
+        .fade {
+            transition: opacity 0.5s ease-in-out;
+        }
