@@ -1,0 +1,251 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: white;
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 15px;
+}
+
+.game-card {
+  height: 100px;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent; 
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.game-card:hover,
+.game-card:active {
+  transform: translateY(-8px); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.game-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0; 
+  left: 0;
+  right: 0;
+  height: calc(60% - 1px); 
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); 
+  border-radius: 0 0 15px 15px; 
+  pointer-events: none; 
+  transform: translateY(100%); 
+  opacity: 0; 
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.game-card:hover::after,
+.game-card:active::after {
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+.game-card img,
+.game-card a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  user-select: none;
+  pointer-events: none; 
+}
+
+.game-card a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.game-card.large {
+  grid-column: span 2;
+}
+
+.game-card.large-4 {
+  grid-column: span 3;
+}
+
+.game-card.cube {
+  grid-column: span 2;
+  grid-row: span 2;
+  height: auto;
+}
+
+/* Ajustes para orientación horizontal */
+@media (orientation: landscape) {
+  .grid-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .game-card {
+    height: 150px;
+  }
+}  
+  
+.game-card .image-text {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%); /* Oculta fuera del contenedor */
+  color: white;
+  font-size: 14px;
+  z-index: 2;
+  font-weight: 700;
+  padding: 5px 10px;     
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  word-wrap: break-word; 
+  max-width: 50%; 
+  opacity: 0; 
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.game-card.large .image-text {
+  font-size: 17px;
+}
+
+.game-card.large-4 .image-text {
+  font-size: 18px;
+}
+
+.game-card:hover .image-text,
+.game-card:active .image-text {
+  opacity: 1; 
+  transform: translateX(-50%) translateY(0); /* Posición final */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+    margin: 0; /* Asegura que no haya espacio adicional */
+}
+
+        .search-bar {
+            display: none;
+            align-items: center;
+            position: absolute;
+            left: 15px;
+            right: 58px;
+            height: 40px;
+            gap: 5px;
+            left: 3px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            height: 40px;
+            border: none;
+            z-index: 1001;
+            padding: 0 10px;
+            border-radius: 20px;
+            background-color: #F0F2F5;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            background-color: #E2E5E9;
+        }
+
+        .spacer {
+            flex: 1;
+        }
+
+        .custom-icon {
+            background-color: transparent !important;
+        }
+
+        .navbar.disabled .icon-container {
+            pointer-events: none;
+        }
+
+        .navbar.disabled .search {
+            pointer-events: auto;
+        }
+        
+        .icon-container:not(.desktop) svg.icon {
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    transform: translateX(1px);
+    
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 40px;
+    height: 40px;
+    color: #65696D;
+    border-radius: 50%;
+    background-color: #E2E5E9;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent; 
+    
+}
+
+
+
+.icon-container.desktop svg {
+    width: 20px; 
+    height: 20px;
+}
+
+    .icon-container.search {
+        margin-left: -2px; 
+    }
+
+    .icon-container:hover {
+        background-color: #D9DDE1;
+        color: #0866FF;
+    }
+
+    .icon {
+        font-size: 20px;
+    }
+
+    .custom-icon img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    
+    .hidden-icons {
+            display: none;
+        }
+       
