@@ -1,0 +1,135 @@
+margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F2F4F7;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 3px;
+    right: 58px;
+    height: 40px;
+    gap: 5px;
+    z-index: 1001;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    background-color: transparent;
+}
+
+.search-bar.open {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.search-bar input {
+    flex: 1;
+    height: 40px;
+    border: none;
+    padding: 0 10px;
+    border-radius: 20px;
+    background-color: #F0F2F5;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    background-color: #E2E5E9;
+}
+
+/* Espaciador */
+.spacer {
+    flex: 1;
+}
+
+/* Iconos */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: #65696D;
+    border-radius: 50%;
+    background-color: #E2E5E9;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.icon-container:hover {
+    background-color: #D9DDE1;
+    color: #0866FF;
+}
+
+.icon-container:not(.desktop) svg.icon {
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    transform: translateX(1px);
+}
+
+.icon-container.desktop svg {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-container.search {
+    margin-left: -2px;
+}
+
+/* Estilo de los iconos */
+.icon {
+    font-size: 20px;
+}
+
+.custom-icon {
+    background-color: transparent !important;
+}
+
+.custom-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Deshabilitar elementos */
+.navbar.disabled .icon-container {
+    pointer-events: none;
+}
+
+.navbar.disabled .search {
+    pointer-events: auto;
+}
+
+/* Ocultar iconos */
+.hidden-icons {
+    display: none;
+}
