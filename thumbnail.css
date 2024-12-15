@@ -133,7 +133,7 @@ body {
   transform: translateX(-50%) translateY(0); /* Posición final */
 }
 
-navbar {
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -257,4 +257,25 @@ navbar {
 /* Ocultar iconos */
 .hidden-icons {
     display: none;
+}
+
+function toggleSearchBar() {
+    const searchBar = document.getElementById('search-bar');
+    const searchIcon = document.getElementById('search-icon');
+
+    if (searchBar.classList.contains('open')) {
+        // Ocultar barra de búsqueda
+        searchBar.classList.remove('open');
+        setTimeout(() => {
+            searchBar.style.display = 'none'; // Ocultar después de la animación
+        }, 400); // Duración de la animación
+        searchIcon.style.display = 'flex'; // Mostrar ícono de búsqueda
+    } else {
+        // Mostrar barra de búsqueda
+        searchBar.style.display = 'flex'; // Mostrar antes de la animación
+        setTimeout(() => {
+            searchBar.classList.add('open');
+        }, 10); // Retraso para asegurar que display: flex se aplique antes
+        searchIcon.style.display = 'none'; // Ocultar ícono de búsqueda
+    }
 }
