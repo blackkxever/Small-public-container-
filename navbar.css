@@ -12,7 +12,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.9);
+     backdrop-filter: blur(14px);
     padding: 15px;
     position: fixed;
     top: 0;
@@ -74,7 +75,7 @@ body {
     height: 40px;
     color: #65696D;
     border-radius: 50%;
-    background-color: #E2E5E9;
+    background-color: rgba(226, 229, 233, 0.8);
     margin-left: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
