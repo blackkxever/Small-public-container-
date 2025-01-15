@@ -1,29 +1,63 @@
-margin: 0;
+    /* General */
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    
     font-family: "ATC Arquette 1_5_17 Semibold", sans-serif;
     background-color: #F2F4F7;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.9);
-     backdrop-filter: blur(14px);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(18px);
     padding: 15px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    margin: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Estado escondido */
+.navbar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Botones con animación mejorada estilo iOS */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: #65696D;
+    border-radius: 50%;
+    background-color: rgba(226, 229, 233, 0.5);
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); /* Transición suave */
+    -webkit-tap-highlight-color: transparent; /* Quita el color azul */
+    will-change: transform, opacity; /* Mejora rendimiento */
+}
+
+.icon-container:active {
+    transform: scale(0.92); /* Reduce el tamaño */
+    opacity: 0.8; /* Baja un poco la opacidad */
+    background-color: #D0D4D8; /* Cambio de fondo más claro */
+}
+
+.icon-container:hover {
+    background-color: #D9DDE1;
+    color: #0866FF; 
 }
 
 /* Barra de búsqueda */
@@ -62,6 +96,11 @@ body {
     background-color: #E2E5E9;
 }
 
+.search-bar input::placeholder {
+    opacity: 1; 
+    font-size: 14px;
+}
+
 /* Espaciador */
 .spacer {
     flex: 1;
@@ -85,7 +124,7 @@ body {
 
 .icon-container:hover {
     background-color: #D9DDE1;
-    color: #0866FF;
+    color: #65696D;
 }
 
 .icon-container:not(.desktop) svg.icon {
@@ -149,35 +188,5 @@ body {
 
 .between {
     width: 100%;
-    height: 55px
+    height: 50px
 }
-
-.navigation-circles {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
-        }
-
-        .circle img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .circle:hover {
-            transform: scale(1.15);
-        }
