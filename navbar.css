@@ -1,10 +1,44 @@
- <style>
+    <style>
     /* General */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+.options-icon.notifications svg {
+    width: 20px;
+    height: 20px;
+    /* La duración total es de 2.5s y se repite infinitamente */
+    animation: bell-swing 2.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    transform-origin: top center;
+}
+
+@keyframes bell-swing {
+    0%   { transform: rotate(0deg); }
+    15%  { transform: rotate(-15deg); }
+    30%  { transform: rotate(10deg); }
+    45%  { transform: rotate(-10deg); }
+    60%  { transform: rotate(5deg); }
+    70%  { transform: rotate(0deg); } /* Regresa a la posición inicial */
+    100% { transform: rotate(0deg); } /* Pausa suave hasta reiniciar */
+}
+
+ .status-indicator {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 12px;
+      height: 12px;
+      background-color: #40bb46;
+      border-radius: 50%;
+      border: 2px solid white;
+      transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
+    }
+    .status-indicator.hidden {
+      opacity: 0;
+      transform: scale(0.5);
+    }
 
 /* Navbar */
 .navbar {
@@ -30,7 +64,7 @@
 }
 
 /* Botones con animación mejorada estilo iOS */
-.icon-container {
+.options-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,13 +80,13 @@
     will-change: transform, opacity; /* Mejora rendimiento */
 }
 
-.icon-container:active {
+.options-icon:active {
     transform: scale(0.92); /* Reduce el tamaño */
     opacity: 0.8; /* Baja un poco la opacidad */
     background-color: #D0D4D8; /* Cambio de fondo más claro */
 }
 
-.icon-container:hover {
+.options-icon:hover {
     background-color: #D9DDE1;
     color: #0866FF; 
 }
@@ -104,7 +138,7 @@
 }
 
 /* Iconos */
-.icon-container {
+.options-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,18 +147,17 @@
     color: #65696D;
     border-radius: 50%;
     background-color: rgba(226, 229, 233, 0.8);
-    margin-left: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     -webkit-tap-highlight-color: transparent;
 }
 
-.icon-container:hover {
+.options-icon:hover {
     background-color: #D9DDE1;
     color: #65696D;
 }
 
-.icon-container:not(.desktop) svg.icon {
+.options-icon:not(.notifications) svg.icon {
     display: block;
     margin: auto;
     vertical-align: middle;
@@ -133,12 +166,12 @@
     transform: translateX(1px);
 }
 
-.icon-container.desktop svg {
+.options-icon.notifications svg {
     width: 20px;
     height: 20px;
 }
 
-.icon-container.search {
+.options-icon.search {
     margin-left: -2px;
 }
 
@@ -147,11 +180,11 @@
     font-size: 20px;
 }
 
-.custom-icon {
+.profile-icon {
     background-color: transparent !important;
 }
 
-.custom-icon img {
+.profile-icon img {
     width: 40px;
     height: 40px;
     object-fit: cover;
@@ -159,7 +192,7 @@
 }
 
 /* Deshabilitar elementos */
-.navbar.disabled .icon-container {
+.navbar.disabled .options-icon {
     pointer-events: none;
 }
 
@@ -280,4 +313,3 @@
   transform: rotate(330deg) translate(0, -130%);
   animation-delay: -0.1s;
 }
-    </style>
