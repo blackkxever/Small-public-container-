@@ -1,0 +1,178 @@
+    body {
+      font-family: 'ATC Arquette 1_5_17 Semibold', sans-serif;
+      background-color: #ffffff;
+      overflow-x: hidden;
+      padding-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+.welcome {
+  position: fixed;
+  top: 635px;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  background: white;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .boton {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            min-width: 100px;
+        }
+        .boton-anuncio {
+            background-color: #1877F2;
+            color: #fff;
+        }
+        .boton-anuncio:hover {
+            background-color: #155DB2;
+        }
+        .boton-cancelar {
+            background-color: #fff;
+            color: #1877F2;
+            border: 2px solid #1877F2;
+        }
+        .boton-cancelar:hover {
+            background-color: #f0f2f5;
+        }
+        
+    /* Círculo del avatar */
+    .circle {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: #ffffff; /* Fondo inicial */
+      transition: background-color 0.3s;
+    }
+    .circle img {
+      width: 100%;
+      height: 100%;
+    }
+    /* Carrusel de opciones */
+    .carousel-container {
+    width: 100%;
+    position: fixed;
+    top: -75px;
+    background-color: white;
+    overflow-x: auto;
+    text-align: center;
+    font-weight: bold;
+    color: #5b6c74;
+    padding: 100% 10px 10px 10px;
+    scrollbar-width: none;
+    z-index: 1000;
+}
+    .carousel-container::-webkit-scrollbar {
+      display: none;
+    }
+    .carousel {
+      display: inline-block;
+      white-space: nowrap;
+      margin-left: 20px;
+    }
+    .carousel span {
+      padding: 5px 5px;
+      cursor: pointer;
+      transition: color 0.3s, font-weight 0.3s;
+      display: inline-block;
+    }
+    .carousel span.active {
+      color: #0865fe;
+      font-weight: bold;
+      position: relative;
+    }
+    .carousel span.active::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #0865fe;
+      border-radius: 20px;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+    }
+    /* Contenedor de las opciones (grid de opciones) */
+    .grid-container {
+      display: flex;
+      background-color: white;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .grid {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .grid.active {
+      display: grid;
+    }
+    .box {
+      width: 105px;
+      height: 105px;
+      background-color: #f6f7f9;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: outline 0.3s, background-color 0.3s;
+    }
+    .box.selected {
+      outline: 2px solid #0865fe;
+      outline-offset: -2px;
+    }
+    /* Contenedor de los círculos de color (para cabello, ropa y vello facial) */
+    .circle-container {
+      position: fixed;
+      margin-top: 230px;
+      width: 100%;
+      height: 100px;
+      background-color: white;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 100%;
+      overflow-x: hidden;
+      z-index: 1000;
+    }
+    .circle-item {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .circle-item.selected {
+      outline: 2px solid #0865fe;
+      outline-offset: 2px;
+    }
+    
