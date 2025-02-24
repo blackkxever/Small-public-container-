@@ -1,178 +1,316 @@
-    body {
-      font-family: 'ATC Arquette 1_5_17 Semibold', sans-serif;
-      background-color: #ffffff;
-      overflow-x: hidden;
-      padding-top: 100px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-.welcome {
-  position: fixed;
-  top: 635px;
-  left: 50%;
-  height: 100%;
-  width: 100%;
-  transform: translate(-50%, -50%);
-  z-index: 1001;
-  background: white;
-  text-align: center;
-  transition: opacity 0.3s ease;
+     <style>
+    /* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .boton {
-            padding: 12px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            min-width: 100px;
-        }
-        .boton-anuncio {
-            background-color: #1877F2;
-            color: #fff;
-        }
-        .boton-anuncio:hover {
-            background-color: #155DB2;
-        }
-        .boton-cancelar {
-            background-color: #fff;
-            color: #1877F2;
-            border: 2px solid #1877F2;
-        }
-        .boton-cancelar:hover {
-            background-color: #f0f2f5;
-        }
-        
-    /* Círculo del avatar */
-    .circle {
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      position: fixed;
-      top: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1100;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      background-color: #ffffff; /* Fondo inicial */
-      transition: background-color 0.3s;
-    }
-    .circle img {
-      width: 100%;
-      height: 100%;
-    }
-    /* Carrusel de opciones */
-    .carousel-container {
-    width: 100%;
-    position: fixed;
-    top: -75px;
-    background-color: white;
-    overflow-x: auto;
-    text-align: center;
-    font-weight: bold;
-    color: #5b6c74;
-    padding: 100% 10px 10px 10px;
-    scrollbar-width: none;
-    z-index: 1000;
+.options-icon.notifications svg {
+    width: 20px;
+    height: 20px;
+    /* La duración total es de 2.5s y se repite infinitamente */
+    animation: bell-swing 2.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    transform-origin: top center;
 }
-    .carousel-container::-webkit-scrollbar {
-      display: none;
-    }
-    .carousel {
-      display: inline-block;
-      white-space: nowrap;
-      margin-left: 20px;
-    }
-    .carousel span {
-      padding: 5px 5px;
-      cursor: pointer;
-      transition: color 0.3s, font-weight 0.3s;
-      display: inline-block;
-    }
-    .carousel span.active {
-      color: #0865fe;
-      font-weight: bold;
-      position: relative;
-    }
-    .carousel span.active::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 3px;
-      background-color: #0865fe;
-      border-radius: 20px;
+
+@keyframes bell-swing {
+    0%   { transform: rotate(0deg); }
+    15%  { transform: rotate(-15deg); }
+    30%  { transform: rotate(10deg); }
+    45%  { transform: rotate(-10deg); }
+    60%  { transform: rotate(5deg); }
+    70%  { transform: rotate(0deg); } /* Regresa a la posición inicial */
+    100% { transform: rotate(0deg); } /* Pausa suave hasta reiniciar */
+}
+
+ .status-indicator {
       position: absolute;
       bottom: -2px;
-      left: 0;
-    }
-    /* Contenedor de las opciones (grid de opciones) */
-    .grid-container {
-      display: flex;
-      background-color: white;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-    .grid {
-      display: none;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .grid.active {
-      display: grid;
-    }
-    .box {
-      width: 105px;
-      height: 105px;
-      background-color: #f6f7f9;
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: outline 0.3s, background-color 0.3s;
-    }
-    .box.selected {
-      outline: 2px solid #0865fe;
-      outline-offset: -2px;
-    }
-    /* Contenedor de los círculos de color (para cabello, ropa y vello facial) */
-    .circle-container {
-      position: fixed;
-      margin-top: 230px;
-      width: 100%;
-      height: 100px;
-      background-color: white;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 100%;
-      overflow-x: hidden;
-      z-index: 1000;
-    }
-    .circle-item {
-      width: 30px;
-      height: 30px;
+      right: -2px;
+      width: 12px;
+      height: 12px;
+      background-color: #40bb46;
       border-radius: 50%;
-      cursor: pointer;
+      border: 2px solid white;
+      transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
     }
-    .circle-item.selected {
-      outline: 2px solid #0865fe;
-      outline-offset: 2px;
+    .status-indicator.hidden {
+      opacity: 0;
+      transform: scale(0.5);
     }
-    
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Estado escondido */
+.navbar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Botones con animación mejorada estilo iOS */
+.options-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: #65696D;
+    border-radius: 50%;
+    background-color: rgba(226, 229, 233, 0.5);
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); /* Transición suave */
+    -webkit-tap-highlight-color: transparent; /* Quita el color azul */
+    will-change: transform, opacity; /* Mejora rendimiento */
+}
+
+.options-icon:active {
+    transform: scale(0.92); /* Reduce el tamaño */
+    opacity: 0.8; /* Baja un poco la opacidad */
+    background-color: #D0D4D8; /* Cambio de fondo más claro */
+}
+
+.options-icon:hover {
+    background-color: #D9DDE1;
+    color: #0866FF; 
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 3px;
+    right: 58px;
+    height: 40px;
+    gap: 5px;
+    z-index: 1001;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    background-color: transparent;
+}
+
+.search-bar.open {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.search-bar input {
+    flex: 1;
+    height: 40px;
+    border: none;
+    padding: 0 10px;
+    border-radius: 20px;
+    background-color: #F0F2F5;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    background-color: #E2E5E9;
+}
+
+.search-bar input::placeholder {
+    opacity: 1; 
+    font-size: 14px;
+}
+
+/* Espaciador */
+.spacer {
+    flex: 1;
+}
+
+/* Iconos */
+.options-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: #65696D;
+    border-radius: 50%;
+    background-color: rgba(226, 229, 233, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.options-icon:hover {
+    background-color: #D9DDE1;
+    color: #65696D;
+}
+
+.options-icon:not(.notifications) svg.icon {
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    transform: translateX(1px);
+}
+
+.options-icon.notifications svg {
+    width: 20px;
+    height: 20px;
+}
+
+.options-icon.search {
+    margin-left: -2px;
+}
+
+/* Estilo de los iconos */
+.icon {
+    font-size: 20px;
+}
+
+.profile-icon {
+  background-color: ;
+}
+
+.profile-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Deshabilitar elementos */
+.navbar.disabled .options-icon {
+    pointer-events: none;
+}
+
+.navbar.disabled .search {
+    pointer-events: auto;
+}
+
+/* Ocultar iconos */
+.hidden-icons {
+    display: none;
+}
+  .hidden {
+  opacity: 0;
+  transform: translateY(40px); /* Empieza desde más abajo */
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.between {
+  width: 100% !important;
+  height: 70px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+}
+
+.loader div {
+  width: 8%;
+  height: 24%;
+  background: rgb(128, 128, 128);
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  opacity: 0;
+  border-radius: 50px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  animation: fade458 1s linear infinite;
+}
+
+@keyframes fade458 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}
+
+.loader .bar1 {
+  transform: rotate(0deg) translate(0, -130%);
+  animation-delay: 0s;
+}
+
+.loader .bar2 {
+  transform: rotate(30deg) translate(0, -130%);
+  animation-delay: -1.1s;
+}
+
+.loader .bar3 {
+  transform: rotate(60deg) translate(0, -130%);
+  animation-delay: -1s;
+}
+
+.loader .bar4 {
+  transform: rotate(90deg) translate(0, -130%);
+  animation-delay: -0.9s;
+}
+
+.loader .bar5 {
+  transform: rotate(120deg) translate(0, -130%);
+  animation-delay: -0.8s;
+}
+
+.loader .bar6 {
+  transform: rotate(150deg) translate(0, -130%);
+  animation-delay: -0.7s;
+}
+
+.loader .bar7 {
+  transform: rotate(180deg) translate(0, -130%);
+  animation-delay: -0.6s;
+}
+
+.loader .bar8 {
+  transform: rotate(210deg) translate(0, -130%);
+  animation-delay: -0.5s;
+}
+
+.loader .bar9 {
+  transform: rotate(240deg) translate(0, -130%);
+  animation-delay: -0.4s;
+}
+
+.loader .bar10 {
+  transform: rotate(270deg) translate(0, -130%);
+  animation-delay: -0.3s;
+}
+
+.loader .bar11 {
+  transform: rotate(300deg) translate(0, -130%);
+  animation-delay: -0.2s;
+}
+
+.loader .bar12 {
+  transform: rotate(330deg) translate(0, -130%);
+  animation-delay: -0.1s;
+}
+  </style>
