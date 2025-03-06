@@ -120,7 +120,7 @@
     flex: 1;
 }
 
-/* Iconos */
+/* Botones con animación mejorada estilo iOS */
 .options-icon {
     display: flex;
     justify-content: center;
@@ -129,10 +129,12 @@
     height: 40px;
     color: #65696D;
     border-radius: 50%;
-    background-color: rgba(226, 229, 233, 0.8);
+    background-color: rgba(226, 229, 233, 0.5);
+    margin-left: 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    -webkit-tap-highlight-color: transparent;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); /* Transición suave */
+    -webkit-tap-highlight-color: transparent; /* Quita el color azul */
+    will-change: transform, opacity; /* Mejora rendimiento */
 }
 
 .options-icon:hover {
