@@ -283,42 +283,40 @@
     height: 115px;
     aspect-ratio: auto;
   }
-  /* Texto superpuesto en las tarjetas */
+
+/* Texto superpuesto en las tarjetas */
 .game-card:not(.dynamic) .image-text {
   position: absolute;
   left: 50%;
-  transform: translateX(-55%) translateY(0); 
+  transform: translateX(-55%) translateY(0);
   text-align: center;
   color: white;
   font-size: 14px;
+  bottom: 20%;
   z-index: 2;
-  font-weight: bold;
-  font-weight: 600;;
-  text-overflow: ellipsis;
-  text-align: center;
-  word-wrap: break-word;
+  font-weight: 600;
   max-width: 100%;
   opacity: 0;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   
-  /* Configuración para limitar a 2 líneas */
+  /* Limita a una línea y agrega '...' si supera el espacio */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  /* Si prefieres dos líneas con truncamiento */
   display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
-  .game-card.large .image-text {
-    font-size: 17px;
-  }
-  .game-card.large-4 .image-text {
-    font-size: 1px;
-  }
-  .game-card:not(.dynamic):hover .image-text,
-  .game-card:not(.dynamic):active .image-text {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-    font-weight: bold;
-  }
+
+.game-card:not(.dynamic):hover .image-text,
+.game-card:not(.dynamic):active .image-text {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  font-weight: bold;
+}  
 
   #shine {
   position: absolute;
