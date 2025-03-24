@@ -95,7 +95,8 @@
     grid-column: 1 / -1;
     height: 115px;
     aspect-ratio: auto;
-    padding: 0 15px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
   
     .status-indicator {
