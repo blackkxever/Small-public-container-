@@ -1,0 +1,112 @@
+html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'DejaVu Sans', sans-serif; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; filter: contrast(1.2) saturate(1.5); }
+
+    .round-button {
+      width: 50px; height: 50px; background-color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 20px; color: #333;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* ESCALA Métrica (Barra de km) */
+    .maplibregl-ctrl-scale {
+      position: fixed !important;
+      left: 50% !important;
+      bottom: 10px !important;
+      transform: translateX(-50%);
+      z-index: 9999;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* Ocultar brújula nativa */
+    .maplibregl-ctrl-compass { display: none !important; }
+    
+        .custom-layer-button { position: fixed; top: 10px; left: 10px; z-index: 9999; }
+    .custom-search-button { position: fixed; top: 10px; left: 70px; z-index: 9999; }
+    .custom-compass-button { position: fixed; top: 70px; left: 10px; z-index: 9999; transition: transform 0.2s ease; }
+
+    .button-grid {
+      position: fixed; bottom: 20px; right: 10px; z-index: 9999;
+      display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; gap: 10px;
+    }
+
+    .custom-3d-button  { grid-column: 1 / 2; grid-row: 1 / 2; }
+    .location-btn      { grid-column: 1 / 2; grid-row: 2 / 3; }
+    .zoom-plus         { grid-column: 2 / 3; grid-row: 1 / 2; }
+    .zoom-minus        { grid-column: 2 / 3; grid-row: 2 / 3; }
+
+    .config-button { position: fixed; bottom: 20px; left: 10px; z-index: 9999; }
+    .route-button  { position: fixed; bottom: 20px; left: 70px; z-index: 9999; }
+
+    .map-style-menu {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3); z-index: 10001;
+      display: none; align-items: center; justify-content: center;
+    }
+    .map-menu {
+      width: 320px; background: white; border-radius: 20px; padding: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); position: relative;
+    }
+    .map-menu h2 { margin: 0 0 12px; font-size: 20px; }
+    .map-options {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .option {
+      border-radius: 12px; overflow: hidden; border: 2px solid transparent;
+      cursor: pointer; position: relative;
+    }
+    .option.selected { border-color: #007aff; }
+    .option img {
+      width: 100%; height: 100px; object-fit: cover; display: block;
+    }
+    .option .label {
+      position: absolute; bottom: 0; background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(80px); width: 100%; text-align: left; padding: 10px; font-weight: 600;
+    }
+    .close-button {
+      position: absolute; top: 10px; right: 10px;
+      width: 32px; height: 32px; background: #e7e7e7; color: #818086;
+      border: none; border-radius: 50%; font-size: 18px; font-weight: bold;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); transition: background 0.3s ease;
+    }
+    .copyright {
+      font-size: 12px; color: #888; text-align: left; margin-top: 12px;
+    }
+    
+      .categories {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
+      padding: 16px 16px 16px 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+
+    .category {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 8px 12px;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .icon {
+      font-size: 18px;
+      margin-right: 8px;
+    }
+
+    .label {
+      font-size: 15px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
