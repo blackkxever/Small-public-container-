@@ -251,6 +251,30 @@ html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family:
     .suggestions-list li .fa-history {
       color: #3e9dff; margin-right: 0.5rem;
     }
+    
+    .custom-layer-button {  
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.custom-street-view-button {      
+  position: fixed;
+  top: 10px;
+  left: 70px;  
+}
+
+.custom-search-button {  
+  position: fixed;
+  top: 10px;
+  left: 130px;    
+}
+
+.custom-compass-button {
+  position: fixed;
+  top: 70px;
+  left: 10px; 
+}
 
     /* ============================= */
     /* Estilos del Banner            */
